@@ -110,7 +110,7 @@ module Kitchen
       def default_name
         # Generate what should be a unique server name
         rand_str = Array.new(8) { rand(36).to_s(36) }.join
-        "#{instance.name}-#{Etc.getlogin}-#{Socket.gethostname}-#{rand_str}"
+        "#{instance.name}-#{Etc.getlogin}-#{rand_str}-#{Socket.gethostname}".gsub('_','-')
       end
 
       private
